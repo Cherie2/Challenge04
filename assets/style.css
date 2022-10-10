@@ -12,10 +12,10 @@
  }
 
  nav {
-    display:flex;
-    justify-content: space-between;
-    margin:1rem;
-
+    text-align: center;
+    margin-bottom: 1rem;
+    color: darkgoldenrod;
+    font-size: 2rem;
  }
 
  #quiz-btn {
@@ -48,5 +48,5 @@
   text-decoration: underline;
  }
  #results-btn:hover{
-    color: black;
+    color: white;
  }
