@@ -1,0 +1,52 @@
+
+ body {
+    background-color: darkred;
+ }
+
+ header {
+   text-align: center;
+   font-size: 10rem;
+   justify-content: center;
+   color: darkgoldenrod;
+   text-decoration: underline;
+ }
+
+ nav {
+    display:flex;
+    justify-content: space-between;
+    margin:1rem;
+
+ }
+
+ #quiz-btn {
+  color: darkred;
+  background-color: darkgoldenrod;
+  width:20rem;
+  font-size: 2rem;
+ }
+
+ #quiz-btn:hover{
+    background-color: darkorange;
+    color:white;
+ }
+
+ #quiz-btn::after{
+    display:hidden;
+ }
+
+ .container {
+  font-size: 1.5rem;
+  color:darkgoldenrod;
+  padding: 1rem;
+ }
+
+ #results-btn{
+  font-size: 2rem;
+  color: darkgoldenrod;
+  border:none;
+  background-color: darkred;
+  text-decoration: underline;
+ }
+ #results-btn:hover{
+    color: black;
+ }
