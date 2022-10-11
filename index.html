@@ -7,14 +7,20 @@
     <link rel="stylesheet" href="/assets/style.css">
     <title>Javascript POP Quiz</title>
 </head>
-<body>
-    <header>Javascript <span>POP</span> Quiz</header>
-       <button id ="results-btn">View High Scores</button>  
-       <nav id="timer">
-           <button id="quiz-btn">START</button>  
-    </nav>
+<body> 
+    <header>
+   <!--div allows start and scores button to be up top-->     
+    <div class="btn">
+        <button id ="results-btn">View High Scores</button>
+        <button id="quiz-btn">START</button>
+    </div>
+        <h1>Javascript POP Quiz</h1>
+    </header>   
+    <!--Where the timer will be displayed-->   
+         <nav id="timer"></nav>
     <main class="container">
             <section>
+    <!--Main section of app where question, choices, and confirmation of correct/wrong displays as well as the end form to submit initials-->           
                 <h1 id="quiz-question"></h1>
                 <ul id="choices"></ul> 
                 <div id="confirm"></div> 
