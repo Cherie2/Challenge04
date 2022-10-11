@@ -15,6 +15,14 @@
    text-decoration: underline;
  }
 
+ nav p {
+   border:.1rem solid black;
+   background-color:darkgoldenrod;
+   color:darkred;
+   font-size:2rem;
+   text-align: center;
+ }
+
  nav {
     text-align: center;
     margin-bottom: 1rem;

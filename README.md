@@ -6,7 +6,9 @@ The motivation for this project is to create a website that allows users to take
 
 In completing this project I have learned the fundamentals of Javascript; including the use of variables, functions, for loops, event listeners, local storage, data attributes, timers, and creating/appending elements.
 
- ![alt text](assets/images/screenshot.png)
+ ![Javascript-Quiz](/assets/127.0.0.1_5501_index.html.png)
+
+ https://cherie2.github.io/Javascript-Timed-POP-Quiz/
 
 ## Tools Utilized
 
@@ -29,7 +31,7 @@ In order to utilize this website, user must have access to a web browser.
 
 This website allows for users to quiz their knowledge of Javascript. By clicking the start button, the user will initiate a timed quiz where they will receive live feedback as to what provided answers are correct or incorrect. By the end of the quiz, the user will be able to submit their initials and receive their score.
 
-link provided 
+link provided here https://cherie2.github.io/Javascript-Timed-POP-Quiz/
 
 ## Credits
 

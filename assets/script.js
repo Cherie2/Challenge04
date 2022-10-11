@@ -42,6 +42,7 @@ var intialsE = document.querySelector("#endscreen");
 
 var currentQuestionIndex = 0;
 var results= "";
+
 //when start is clicked, timer and generateQuestion function is initiated
 function startQuiz () {
     countDown();
