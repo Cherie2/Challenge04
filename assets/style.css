@@ -9,7 +9,7 @@
  }
 
  header h1 {
-   font-size: 10rem;
+   font-size: 8rem;
    text-align: center;
    color: darkgoldenrod;
    text-decoration: underline;
@@ -35,6 +35,12 @@
   background-color: darkgoldenrod;
   width:20rem;
   font-size: 2rem;
+ }
+ .results{
+   font-size: 2rem;
+   color: darkgoldenrod;
+   border:none;
+   background-color: darkred;
  }
  #results-btn{
   font-size: 2rem;
@@ -65,8 +71,19 @@
    font-weight: bold;
  }
  #choices li:hover{
-   color: white;
-   background-color: darkorange;
+   color: whitesmoke;
+   background-color:darkorange;
    pointer-events: grab;
  }
+
+ section {
+   display:flex;
+   flex-direction:column;
+   align-items: center;
+   justify-content: center;
+ }
+
+ #endscreen {
+   text-align: center;
+ } 
 

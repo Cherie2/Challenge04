@@ -9,10 +9,10 @@
 </head>
 <body> 
     <header>
-   <!--div allows start and scores button to be up top-->     
+   <!--div allows start and score button to be up top-->     
     <div class="btn">
-        <button id ="results-btn">View High Scores</button>
-        <button id="quiz-btn">START</button>
+        <button onclick="style.display= 'hidden'" id ="results-btn">View High Scores</button>
+        <button onclick="style.display = 'none'" id="quiz-btn">START</button>
     </div>
         <h1>Javascript POP Quiz</h1>
        
@@ -28,6 +28,8 @@
                 <ul id="choices"></ul> 
                 <div id="confirm"></div> 
                 <div id="endscreen"></div>
+                <p id="results"></p>
+                <div id="start-over"></div>
             </section>    
     </main>
 <script src="assets/script.js"></script>
