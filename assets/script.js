@@ -1,4 +1,4 @@
-//Array of objects that include questions,choices, and answers 
+//Array of objects that include questions, choices, and answers 
 var questions = [
     {
     question: "What do Javascript file extensions end with?",
@@ -12,7 +12,7 @@ var questions = [
     },
     {
     question:"Javascript uses what to denote an array?",
-    answers: ["A.) Square Brackets","B.) Curly Brackets","C.) Parathesis","D.)Apostrophe Marks"],
+    answers: ["A.) Square Brackets","B.) Curly Brackets","C.) Parenthesis","D.)Apostrophe Marks"],
     answer:"A.) Square Brackets"
     },
     {
@@ -45,6 +45,7 @@ var startOver = document.querySelector("#start-over")
 var currentQuestionIndex = 0;
 var results = 0;
 var timeLeft = 40;
+var score="";
 
 //when start is clicked, countdown and generateQuestion function is initiated
 function startQuiz () {
@@ -63,7 +64,7 @@ function generateQuestion(){
             var h1 = document.createElement("h1");
             h1.textContent = showQuestion.question;
             quiz.append(h1);
- //creates li element for answers to be displayed in 
+//creates li element for answers to be displayed in 
             for(var i = 0; i < showQuestion.answers.length; i++){
                 var liE = document.createElement("li");
                 liE.textContent = showQuestion.answers[i];
@@ -73,7 +74,7 @@ function generateQuestion(){
 }
 //function that checks answers selected by user and returns correct/incorrect feedback
 function checkAnswer(event){
- //creates h1 element after user selects answer, and informs user if they are correct/incorrect, also tallies correct answers   
+//creates h1 element after user selects answer, and informs user if they are correct/incorrect, also tallies correct answers   
     if(questions[currentQuestionIndex].answer == event.target.innerText){
         results++;
         confirmE.innerHTML="";
@@ -122,58 +123,60 @@ function endScreen () {
     var end = document.createElement("h1");
     end.textContent="QUIZ IS OVER!";
     intialsE.append(end);
-    end.setAttribute("style", "text-align: center; font-size: 5rem")
+    end.setAttribute("style", "text-align: center; font-size: 5rem; margin-bottom:2rem; border:.1rem solid black; background-color:darkgoldenrod; color:darkred")
     var initials = document.createElement("input");
-    initials.setAttribute("style","background-color: darkgoldenrod; color:darkred");
+    initials.setAttribute("style","max-height:2rem; margin-bottom:2rem; background-color: darkgoldenrod; color:darkred");
     intialsE.append(initials);
     var submit=document.createElement("button");
     submit.textContent="Submit Initials";
     intialsE.append(submit);
-    submit.setAttribute("style", "background-color: darkgoldenrod; color: darkred");
+    submit.setAttribute("style", "margin-bottom:2rem; max-height:2rem; font-size:1rem; background-color: darkgoldenrod; color: darkred");
     takeAgain();
 }
 
-//functions that allow user to save and view score
+//function that allows user to save initials to score
 function saveScore (event){
     if(event.target.textContent == "Submit Initials"){
         var score = document.querySelector("input");
         score.textContent="";
         localStorage.setItem("High Scores", JSON.stringify(`Name: ${score.value}, Score: ${results}`));
-        localStorage.getItem("High Scores", (`Name: ${score.value}, Score: ${results}`));
-        viewScore();
+        localStorage.getItem("High Scores", (`Name: ${score.value}, Score: ${results}`));   
+        viewScore(); 
     }
-
-function viewScore () {
-    var results = document.createElement("h1");
-    results = localStorage.getItem("High Scores", (`Name: ${score}, Score: ${results}`));
-    results.textContent=results;
-    resultsE.append(results);
-    }   
 }
-//allows user to see last score recorded, click again to get rid of score
+//function that allows user to view score on page
+function viewScore () {
+        var results = document.createElement("h1");
+        results = localStorage.getItem("High Scores", (`Name: ${score}, Score: ${results}`));
+        results.textContent=results;
+        resultsE.append(results);
+    }
+//allows user to see last score recorded
 var scoresView=true;
 function viewHighScore (event) {
-    if(scoresView){
-        var highScores = document.createElement("h2");
+    if(scoresView){ 
+        var highScores = document.createElement("p");
         highScores = localStorage.getItem("High Scores");
         highScores.value=highScores;
         resultsBtn.append(highScores);
     } else {
-        window.location.reload("Refresh");
-        highScores = true;
+        resultsBtn.innerHTML="";
     }
-    scoresView=false;
+     scoresView = false;
 }
-          
-       
+//Function that takes you back to beginning screen when start over button is clicked          
+var end=false;      
 function takeAgain (event){
+    if( end === false){
+        end = false;
         var take = document.createElement("button");
         take.textContent ="START OVER";
         startOver.append(take);
-        take.setAttribute("style", "background-color: darkgoldenrod; color:darkred");
-        if(event.target.click){
-            window.location.reload("Refresh");
-        }
+        take.setAttribute("style", "font-size:2rem; margin-top:1rem; background-color: darkgoldenrod; color:darkred");
+    }else{
+        window.location.reload("Refresh");
+    }
+    end=true;
 }
 //event listeners added for functions to conduct quiz app
 startButton.addEventListener('click', startQuiz);
