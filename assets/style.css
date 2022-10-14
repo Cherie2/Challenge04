@@ -21,11 +21,11 @@
    color:darkred;
    font-size:2rem;
    text-align: center;
+   margin:0;
  }
 
  nav {
     text-align: center;
-    margin-bottom: 1rem;
     color: darkgoldenrod;
     font-size: 2rem;
  }
@@ -61,7 +61,7 @@
  .container {
   font-size: 1.5rem;
   color:darkgoldenrod;
-  padding: 1rem;
+  padding:0;
  }
 
  #choices{

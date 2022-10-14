@@ -43,8 +43,8 @@ var resultsBtn = document.querySelector("#results-btn");
 var startOver = document.querySelector("#start-over")
 
 var currentQuestionIndex = 0;
-var results= 0;
-var timeLeft=40;
+var results = 0;
+var timeLeft = 40;
 
 //when start is clicked, countdown and generateQuestion function is initiated
 function startQuiz () {
@@ -150,14 +150,20 @@ function viewScore () {
     resultsE.append(results);
     }   
 }
-//allows user to see last score recorded
+//allows user to see last score recorded, click again to get rid of score
+var scoresView=true;
 function viewHighScore (event) {
+    if(scoresView){
         var highScores = document.createElement("h2");
         highScores = localStorage.getItem("High Scores");
         highScores.value=highScores;
         resultsBtn.append(highScores);
-        
+    } else {
+        window.location.reload("Refresh");
+        highScores = true;
     }
+    scoresView=false;
+}
           
        
 function takeAgain (event){
