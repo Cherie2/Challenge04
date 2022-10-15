@@ -69,8 +69,8 @@ function generateQuestion(){
                 var liE = document.createElement("li");
                 liE.textContent = showQuestion.answers[i];
                 choices.append(liE);
-             }
-        }
+            }
+    }
 }
 //function that checks answers selected by user and returns correct/incorrect feedback
 function checkAnswer(event){
@@ -96,12 +96,12 @@ function checkAnswer(event){
 }
 //Function that deducts time for incorrect answers
  function deduct(event){ 
-            if(timeLeft>=0 && (confirm.textContent ="Incorrect")){
-            timeLeft -= 5;
-            timer.textContent = timeLeft + " seconds remaining";
-            timeLeft--;
+            if(timeLeft>0 && (confirm.textContent ="Incorrect")){
+                timeLeft -= 5;
+                timer.textContent = timeLeft + " seconds remaining";
+                timeLeft--;
             }
-        }
+}
 //timer function for starting countdown and calls endscreen function when it hits 0
 function countDown () {
     var timeInterval = setInterval(function () {
@@ -115,7 +115,7 @@ function countDown () {
         }else if (currentQuestionIndex >= questions.length){
             clearInterval(timeInterval);
             timer.setAttribute("style", "display:none");
-        }else if (timeLeft === 0) {
+        }else if (timeLeft === 0 || (timeLeft <= -1)) {
                 clearInterval(timeInterval);
                 endScreen();
                 timer.setAttribute("style", "display:none");
