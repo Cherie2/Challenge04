@@ -160,7 +160,6 @@ function viewScore () {
 var scoresView=true;
 function viewHighScore (event) {
     if(scoresView){ 
-        console.log(resultsBtn);
         var highScores = document.createElement("p");
         highScores = localStorage.getItem("High Scores");
         highScores.value=highScores;
