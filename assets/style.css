@@ -62,10 +62,12 @@
  }
  #results-btn:hover{
     color: white;
+    cursor: grab;
  }
  #quiz-btn:hover{
     background-color: darkorange;
     color:white;
+    cursor: grab;
  }
 
  .container {
@@ -83,7 +85,7 @@
  #choices li:hover{
    color: whitesmoke;
    background-color:darkorange;
-   pointer-events: grab;
+   cursor: grab;
  }
 
  section {
@@ -99,3 +101,32 @@
    text-align: center;
  } 
 
+@media screen and (max-width:768px) {
+  header h1{
+    font-size: 4rem;
+  }
+  h1 {
+    font-size: 1.5rem;
+    margin:0;
+  }
+  nav {
+    font-size: 1.5rem;
+  }
+  #choices {
+    font-size: 1.2rem;
+  }
+  #endscreen h1{
+    font-size: 3rem !important;
+  }
+  #results-btn{
+    font-size: 1rem;
+  }
+  #quiz-btn{
+    font-size: 1.5rem;
+    max-width: 10rem;
+  }
+  section {
+    margin-right:.2rem;
+    margin-left:.2rem;
+  }
+}

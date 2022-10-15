@@ -81,11 +81,13 @@ function checkAnswer(event){
         var confirm = document.createElement("h1");
         confirm.textContent ="Correct";
         confirmE.append(confirm);
+        confirm.setAttribute("style", "text-decoration:overline; background-color:darkgreen");
     } else {
         confirmE.innerHTML="";
         var confirm = document.createElement("h1");
         confirm.textContent ="Incorrect";
         confirmE.append(confirm);
+        confirm.setAttribute("style", "text-decoration:overline; background-color:red");
         deduct();
         }
 //Allows user to answer next question by cycling through index and generating next question 
@@ -94,7 +96,7 @@ function checkAnswer(event){
 }
 //Function that deducts time for incorrect answers
  function deduct(event){ 
-            if(confirm.textContent ="Incorrect"){
+            if(timeLeft>=0 && (confirm.textContent ="Incorrect")){
             timeLeft -= 5;
             timer.textContent = timeLeft + " seconds remaining";
             timeLeft--;
@@ -103,18 +105,21 @@ function checkAnswer(event){
 //timer function for starting countdown and calls endscreen function when it hits 0
 function countDown () {
     var timeInterval = setInterval(function () {
-        if(timeLeft >= 0) {
+        if(timeLeft >= 0 && (currentQuestionIndex <= questions.length)) {
          timer.textContent = timeLeft + " seconds remaining";
          timeLeft--;
         }
-       if(timeLeft === 0 && (currentQuestionIndex >= questions.length)) {
+        if(timeLeft === 0 && (currentQuestionIndex >= questions.length)) {
             clearInterval(timeInterval);
             timer.setAttribute("style", "display:none");
-          }else if (timeLeft === 0) {
+        }else if (currentQuestionIndex >= questions.length){
+            clearInterval(timeInterval);
+            timer.setAttribute("style", "display:none");
+        }else if (timeLeft === 0) {
                 clearInterval(timeInterval);
                 endScreen();
                 timer.setAttribute("style", "display:none");
-          }}, 1000)
+        }}, 1000)
     }
 //Function for end form that allows users to submit their initials 
 function endScreen () {
@@ -155,12 +160,13 @@ function viewScore () {
 var scoresView=true;
 function viewHighScore (event) {
     if(scoresView){ 
+        console.log(resultsBtn);
         var highScores = document.createElement("p");
         highScores = localStorage.getItem("High Scores");
         highScores.value=highScores;
         resultsBtn.append(highScores);
     } else {
-        resultsBtn.innerHTML="";
+        resultsBtn.innerText="View High Scores";
     }
      scoresView = false;
 }
@@ -172,7 +178,7 @@ function takeAgain (event){
         var take = document.createElement("button");
         take.textContent ="START OVER";
         startOver.append(take);
-        take.setAttribute("style", "font-size:2rem; margin-top:1rem; background-color: darkgoldenrod; color:darkred");
+        take.setAttribute("style", "font-size:2rem; cursor:grab; margin-top:1rem; background-color: darkgoldenrod; color:darkred");
     }else{
         window.location.reload("Refresh");
     }
